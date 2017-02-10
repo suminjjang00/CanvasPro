@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>canvas!!</title>
+    <link rel="stylesheet" href="/farbtastic.css" />
+    <script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/farbtastic.js"></script>
+    <script>
+      function Point(event,target){
+        this.x=event.pageX - $(target).position().left;
+        this.y =event.pageY - $(target).position().top;
+      }
+      $(document).ready(function(){
+        var canvas = document.getElementById('canvas');
+        var context = canvas.getContext('2d');
+
+        var width =5;
+        var opacity =1.0;
+        var pressure=1.0;
+        var color='#000000';
+        var isDown=false;
+        var newPoint, oldPoint;
+
+        $('#colorpicker').farbtastic(function(data){
+          color =data;
+        });
+        canvas.addEventListener('mousedown',function(event){
+
+        });
+        canvas.addEventListener('mouseup',function(){
+
+        });
+        canvas.addEventListener('mousemove',function(event){
+
+        });
+
+        $('#sliderA').change(function(){
+
+        });
+        $('#sliderB').change(function(){
+
+        });
+        var socket=io.connect();
+        socket.emit('join','<%= room %>');
+        socket.on('line',function(data){
+
+        });
+
+      });
+    </script>
+  </head>
+  <body>
+    <table border="10">
+      <tr>
+        <td rowspan="3">
+          <canvas id="canvas" width="1200" height="800"></canvas>
+        </td>
+        <td height="200">
+          <div id="colorpicker"></div>
+        </td>
+      </tr>
+      <tr>
+        <td height="25">
+          <input id="sliderA" type="range" min="0" max="20" value="5" /><br/>
+          <input type="sliderB" type="range" min="0" max="100" />
+        </td>
+      </tr>
+      <tr>
+        <td style="background: orange;"></td>
+      </tr>
+    </table>
+  </body>
+</html>
