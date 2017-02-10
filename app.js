@@ -57,11 +57,9 @@ app.get('/room',function(request,response){
   });
   response.send(rooms);
 });
-
 server.listen(10118,function(){
   console.log('on the server...');
 });
-
 app.get('/',function(request,response){
   response.send('test');
 });
